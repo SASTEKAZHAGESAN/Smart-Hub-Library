@@ -1,11 +1,12 @@
 function login() {
-  let user = document.getElementById("username").value;
+  let user = document.getElementById("name").value;
   let pass = document.getElementById("password").value;
 
-  if (user === "admin" && pass === "1234") {
+  // 👇 You define your own login
+  if (user === "karthika" && pass === "12345") {
     alert("Login successful!");
     window.location.href = "index.html";
   } else {
-    alert("Invalid username or password");
+    alert("Invalid name or password");
   }
 }
