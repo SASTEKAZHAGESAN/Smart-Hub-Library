@@ -1,18 +1,11 @@
-document.getElementById("loginForm").addEventListener("submit", function(e){
-    e.preventDefault();
+function login() {
+  let user = document.getElementById("username").value;
+  let pass = document.getElementById("password").value;
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-
-    const user = users.find(u => u.email === email && u.password === password);
-
-    if(user){
-        // Save logged-in user
-        localStorage.setItem("currentUser", JSON.stringify(user));
-        window.location.href = "home.html";
-    } else {
-        document.getElementById("message").textContent = "Invalid email or password!";
-    }
-});
+  if (user === "admin" && pass === "1234") {
+    alert("Login successful!");
+    window.location.href = "index.html";
+  } else {
+    alert("Invalid username or password");
+  }
+}
