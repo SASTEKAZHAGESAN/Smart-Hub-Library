@@ -1,0 +1,18 @@
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if(user){
+        // Save logged-in user
+        localStorage.setItem("currentUser", JSON.stringify(user));
+        window.location.href = "home.html";
+    } else {
+        document.getElementById("message").textContent = "Invalid email or password!";
+    }
+});
